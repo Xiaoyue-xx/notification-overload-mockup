@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive prototype comparing normal, overloaded, and focus mode notification experiences.">
+  <title>Notification Overload</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">STUDENT UX STUDY</p>
+      <h1>Notification Overload</h1>
+      <p class="subtitle">Three Notification States</p>
+    </header>
+
+    <section class="prototype-grid" aria-label="Notification state comparison">
+      <!-- Shared phone shell: all three states use the same framework and structure. -->
+      <article class="phone-card is-selected" data-state="normal" tabindex="0" aria-label="Normal notification state" aria-pressed="true">
+        <div class="state-heading">
+          <div>
+            <p class="state-number">01</p>
+            <h2>Normal</h2>
+          </div>
+          <p>A typical notification experience.</p>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone phone--normal">
+            <div class="phone__speaker" aria-hidden="true"></div>
+            <div class="phone__screen">
+              <div class="status-bar">
+                <span>9:41</span>
+                <span class="status-icons" aria-hidden="true">
+                  <i class="signal"></i><i class="wifi"></i><i class="battery"></i>
+                </span>
+              </div>
+
+              <div class="screen-heading">
+                <p>Tuesday, October 6</p>
+                <h3>Good morning</h3>
+              </div>
+
+              <div class="notification-summary">
+                <span class="summary-dot"></span>
+                <span>4 notifications</span>
+              </div>
+
+              <div class="notification-list notification-list--normal">
+                <div class="notification-card notification-card--message">
+                  <div class="app-icon app-icon--message">M</div>
+                  <div class="notification-copy">
+                    <div class="notification-meta"><strong>Messages</strong><span>now</span></div>
+                    <p><b>Emma</b>: Are we still meeting at 3?</p>
+                  </div>
+                </div>
+
+                <div class="notification-card notification-card--canvas">
+                  <div class="app-icon app-icon--canvas">C</div>
+                  <div class="notification-copy">
+                    <div class="notification-meta"><strong>Canvas</strong><span>9:24</span></div>
+                    <p>New assignment posted</p>
+                  </div>
+                </div>
+
+                <div class="notification-card notification-card--instagram">
+                  <div class="app-icon app-icon--instagram">◎</div>
+                  <div class="notification-copy">
+                    <div class="notification-meta"><strong>Instagram</strong><span>8:32</span></div>
+                    <p>2 new notifications</p>
+                  </div>
+                </div>
+
+                <div class="notification-card notification-card--spotify">
+                  <div class="app-icon app-icon--spotify">S</div>
+                  <div class="notification-copy">
+                    <div class="notification-meta"><strong>Spotify</strong><span>7:50</span></div>
+                    <p>New music from an artist you follow</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-home" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="phone-card" data-state="overloaded" tabindex="0" aria-label="Overloaded notification state" aria-pressed="false">
+        <div class="state-heading">
+          <div>
+            <p class="state-number">02</p>
+            <h2>Overloaded</h2>
+          </div>
+          <p>Notifications begin to compete for attention.</p>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone phone--overloaded">
+            <div class="phone__speaker" aria-hidden="true"></div>
+            <div class="phone__screen">
+              <div class="status-bar">
+                <span>9:41</span>
+                <span class="status-icons" aria-hidden="true">
+                  <i class="signal"></i><i class="wifi"></i><i class="battery"></i>
+                </span>
+              </div>
+
+              <div class="screen-heading screen-heading--compact">
+                <p>Tuesday, October 6</p>
+                <h3>Notifications</h3>
+              </div>
+
+              <div class="overload-alert">
+                <span>27</span>
+                <p>notifications in the last hour</p>
+              </div>
+
+              <div class="notification-list notification-list--overloaded">
+                <div class="stacked-item stacked-item--message">
+                  <span class="stacked-icon">M</span>
+                  <div><strong>Messages</strong><p>Emma: Are we still meeting at 3?</p></div>
+                  <small>now</small>
+                </div>
+                <div class="stacked-item stacked-item--instagram">
+                  <span class="stacked-icon">◎</span>
+                  <div><strong>Instagram</strong><p>2 new notifications</p></div>
+                  <small>2m</small>
+                </div>
+                <div class="stacked-item stacked-item--tiktok">
+                  <span class="stacked-icon">♪</span>
+                  <div><strong>TikTok</strong><p>New video from your creator</p></div>
+                  <small>8m</small>
+                </div>
+                <div class="stacked-item stacked-item--gmail">
+                  <span class="stacked-icon">G</span>
+                  <div><strong>Gmail</strong><p>New message from study group</p></div>
+                  <small>14m</small>
+                </div>
+                <div class="stacked-item stacked-item--canvas">
+                  <span class="stacked-icon">C</span>
+                  <div><strong>Canvas</strong><p>Assignment reminder</p></div>
+                  <small>22m</small>
+                </div>
+                <div class="stacked-item stacked-item--spotify">
+                  <span class="stacked-icon">S</span>
+                  <div><strong>Spotify</strong><p>New music from an artist you follow</p></div>
+                  <small>31m</small>
+                </div>
+                <div class="stacked-item stacked-item--amazon">
+                  <span class="stacked-icon">A</span>
+                  <div><strong>Amazon</strong><p>Your order has shipped</p></div>
+                  <small>40m</small>
+                </div>
+                <div class="stacked-item stacked-item--calendar">
+                  <span class="stacked-icon">▦</span>
+                  <div><strong>Calendar</strong><p>Class starts in 20 minutes</p></div>
+                  <small>45m</small>
+                </div>
+                <div class="stacked-item stacked-item--news">
+                  <span class="stacked-icon">N</span>
+                  <div><strong>News</strong><p>3 stories require your attention</p></div>
+                  <small>51m</small>
+                </div>
+                <div class="stacked-item stacked-item--discord">
+                  <span class="stacked-icon">D</span>
+                  <div><strong>Discord</strong><p>New message in study group</p></div>
+                  <small>57m</small>
+                </div>
+                <div class="stacked-item stacked-item--instagram stacked-item--repeat">
+                  <span class="stacked-icon">◎</span>
+                  <div><strong>Instagram</strong><p>New like on your post</p></div>
+                  <small>59m</small>
+                </div>
+              </div>
+
+              <div class="phone-home" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="phone-card" data-state="focus" tabindex="0" aria-label="Focus mode notification state" aria-pressed="false">
+        <div class="state-heading">
+          <div>
+            <p class="state-number">03</p>
+            <h2>Focus Mode</h2>
+          </div>
+          <p>Important information is prioritized while less urgent notifications are grouped.</p>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone phone--focus">
+            <div class="phone__speaker" aria-hidden="true"></div>
+            <div class="phone__screen">
+              <div class="status-bar">
+                <span>9:41</span>
+                <span class="status-icons" aria-hidden="true">
+                  <i class="signal"></i><i class="wifi"></i><i class="battery"></i>
+                </span>
+              </div>
+
+              <div class="focus-header">
+                <div class="focus-mark" aria-hidden="true">F</div>
+                <div>
+                  <p>Focus Mode</p>
+                  <h3>Today</h3>
+                </div>
+              </div>
+
+              <section class="focus-group focus-group--important">
+                <div class="group-heading"><span></span><h4>IMPORTANT</h4></div>
+                <div class="focus-item focus-item--urgent">
+                  <span class="focus-item__icon">M</span>
+                  <div><strong>Emma</strong><p>Are we still meeting at 3?</p></div>
+                  <small>now</small>
+                </div>
+                <div class="focus-item">
+                  <span class="focus-item__icon focus-item__icon--calendar">▦</span>
+                  <div><strong>Class</strong><p>Starts in 20 minutes</p></div>
+                  <small>next</small>
+                </div>
+              </section>
+
+              <section class="focus-group focus-group--later">
+                <div class="group-heading"><span></span><h4>LATER</h4></div>
+                <div class="later-row"><span>Social</span><strong>4 notifications</strong></div>
+                <div class="later-row"><span>Shopping</span><strong>3 updates</strong></div>
+                <div class="later-row"><span>Entertainment</span><strong>2 notifications</strong></div>
+              </section>
+
+              <section class="focus-group focus-group--quiet">
+                <div class="group-heading"><span></span><h4>QUIET</h4></div>
+                <p class="quiet-copy">Promotional notifications hidden</p>
+              </section>
+
+              <div class="focus-message">
+                <span class="focus-message__icon">✓</span>
+                <p>Only important notifications are shown right now.</p>
+              </div>
+              <button class="view-later" type="button">View Later</button>
+
+              <div class="phone-home" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="state-controls" aria-label="Select a notification state">
+      <button class="state-button is-active" type="button" data-target="normal" aria-pressed="true">
+        <span class="button-dot"></span>Normal
+      </button>
+      <button class="state-button" type="button" data-target="overloaded" aria-pressed="false">
+        <span class="button-dot"></span>Overloaded
+      </button>
+      <button class="state-button" type="button" data-target="focus" aria-pressed="false">
+        <span class="button-dot"></span>Focus Mode
+      </button>
+    </section>
+
+    <section class="selection-detail" aria-live="polite">
+      <p class="selection-kicker">SELECTED STATE</p>
+      <h2 id="selection-title">Normal</h2>
+      <p id="selection-description">A balanced experience with four notifications that preserve the user’s attention.</p>
+      <button class="enter-mode" id="enter-mode" type="button">Open Normal experience <span aria-hidden="true">→</span></button>
+    </section>
+
+    <!-- This overlay is the separate experience page for each selected mode. -->
+    <section class="mode-viewer" id="mode-viewer" aria-hidden="true" aria-label="Selected notification mode">
+      <div class="mode-viewer__backdrop" data-close-viewer></div>
+      <div class="mode-viewer__panel" role="dialog" aria-modal="true" aria-labelledby="viewer-title">
+        <button class="viewer-close" type="button" data-close-viewer aria-label="Return to mode selection">← Back to selection</button>
+
+        <div class="mode-viewer__header">
+          <p id="viewer-kicker">SELECTED EXPERIENCE</p>
+          <h2 id="viewer-title">Normal</h2>
+          <p id="viewer-description">A balanced notification experience.</p>
+        </div>
+
+        <div class="mode-content">
+          <article class="mode-page mode-page--normal is-active" data-view-page="normal">
+            <div class="mode-page__topline">
+              <span>Normal activity</span>
+              <strong>4 notifications</strong>
+            </div>
+            <h3>Today’s notifications</h3>
+            <p class="mode-page__intro">Everything appears in a balanced, easy-to-scan order.</p>
+            <div class="mode-notification-list">
+              <button class="mode-notification" type="button" data-notification="Messages: Emma asked about meeting at 3.">
+                <span class="mode-icon mode-icon--message">M</span>
+                <span><strong>Messages</strong><small>Emma: Are we still meeting at 3?</small></span>
+                <span class="mode-time">now</span>
+              </button>
+              <button class="mode-notification" type="button" data-notification="Canvas: a new assignment was posted.">
+                <span class="mode-icon mode-icon--canvas">C</span>
+                <span><strong>Canvas</strong><small>New assignment posted</small></span>
+                <span class="mode-time">9:24</span>
+              </button>
+              <button class="mode-notification" type="button" data-notification="Instagram: two new notifications.">
+                <span class="mode-icon mode-icon--instagram">◎</span>
+                <span><strong>Instagram</strong><small>2 new notifications</small></span>
+                <span class="mode-time">8:32</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="mode-page mode-page--overloaded" data-view-page="overloaded">
+            <div class="mode-page__topline">
+              <span>Overloaded activity</span>
+              <strong>27 notifications</strong>
+            </div>
+            <h3>Attention is competing</h3>
+            <p class="mode-page__intro">Many messages appear at once, making the important information difficult to find.</p>
+            <div class="mode-notification-list mode-notification-list--compact">
+              <button class="mode-notification" type="button" data-notification="Messages alert: Emma asked about meeting at 3."><span class="mode-icon mode-icon--message">M</span><span><strong>Messages</strong><small>Emma: Are we still meeting at 3?</small></span><span class="mode-time">now</span></button>
+              <button class="mode-notification" type="button" data-notification="Instagram update"><span class="mode-icon mode-icon--instagram">◎</span><span><strong>Instagram</strong><small>2 new notifications</small></span><span class="mode-time">2m</span></button>
+              <button class="mode-notification" type="button" data-notification="TikTok update"><span class="mode-icon mode-icon--tiktok">♪</span><span><strong>TikTok</strong><small>New video from your creator</small></span><span class="mode-time">8m</span></button>
+              <button class="mode-notification" type="button" data-notification="Gmail update"><span class="mode-icon mode-icon--gmail">G</span><span><strong>Gmail</strong><small>New message from study group</small></span><span class="mode-time">14m</span></button>
+            </div>
+            <p class="overload-warning">27 notifications in the last hour</p>
+          </article>
+
+          <article class="mode-page mode-page--focus" data-view-page="focus">
+            <div class="focus-mode-header">
+              <div><span>FOCUS MODE</span><h3>Only what matters</h3></div>
+              <span class="focus-status">Calm</span>
+            </div>
+            <nav class="focus-tabs" aria-label="Focus mode sections">
+              <button class="focus-tab is-active" type="button" data-focus-tab="important">Important</button>
+              <button class="focus-tab" type="button" data-focus-tab="later">Later</button>
+              <button class="focus-tab" type="button" data-focus-tab="quiet">Quiet</button>
+            </nav>
+            <div class="focus-tab-panel is-active" data-focus-panel="important">
+              <p class="focus-panel-label">IMPORTANT</p>
+              <button class="important-card" type="button" data-notification="Important: Emma asked whether we are still meeting at 3.">
+                <span class="important-card__icon">M</span>
+                <span><strong>Emma</strong><small>Are we still meeting at 3?</small></span>
+                <span class="important-card__time">Now</span>
+              </button>
+              <button class="important-card" type="button" data-notification="Important: your class starts in 20 minutes.">
+                <span class="important-card__icon important-card__icon--calendar">▦</span>
+                <span><strong>Class</strong><small>Starts in 20 minutes</small></span>
+                <span class="important-card__time">Next</span>
+              </button>
+            </div>
+            <div class="focus-tab-panel" data-focus-panel="later">
+              <p class="focus-panel-label">LATER</p>
+              <div class="later-card"><span>Social</span><strong>4 notifications</strong></div>
+              <div class="later-card"><span>Shopping</span><strong>3 updates</strong></div>
+              <div class="later-card"><span>Entertainment</span><strong>2 notifications</strong></div>
+              <p class="later-note">These updates are waiting until your focus period ends.</p>
+            </div>
+            <div class="focus-tab-panel" data-focus-panel="quiet">
+              <p class="focus-panel-label">QUIET</p>
+              <div class="quiet-card"><span>✓</span><div><strong>Promotional notifications hidden</strong><small>Only important information is shown.</small></div></div>
+            </div>
+            <div class="viewer-toast" id="viewer-toast" role="status" aria-live="polite"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <div class="footer-line"></div>
+      <p>Interactive Web Prototype</p>
+      <p class="footer-tech">HTML <span>•</span> CSS <span>•</span> JavaScript</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
